@@ -11,6 +11,5 @@
 ;;; Code from Paradigms of Artificial Intelligence Programming
 ;;; Copyright (c) 2019 Luis Blázquez, Samuel Gómez
 
-;;;; File unification.lisp: implementation of unification algorithm in LISP
-
-(defunc unificar(E1, E2))
+;;;; # File 
+;;;; apply.lisp:
