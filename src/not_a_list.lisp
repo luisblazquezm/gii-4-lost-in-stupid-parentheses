@@ -14,7 +14,7 @@
 ;;; Copyright (c) 2019 Luis Blázquez, Samuel Gómez
 
 ;;;; # File 
-;;;; is_list.lisp: function to detect if one component is a list or not
+;;;; not_a_list.lisp: function to detect if one component is a list or not
 
 
 ;;;
@@ -31,7 +31,7 @@
 ;;;
 
 
-(defun is_list (var)
+(defun not_a_list (var)
 	(cond ((list var)				                                       ; Check If it is a list
 			  (if (and (symbolp (first var)) (string= (first var) '?) )    ; Check if the first element is a symbol and is '?'
 			      T
