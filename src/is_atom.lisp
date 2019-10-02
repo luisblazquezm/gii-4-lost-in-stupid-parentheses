@@ -16,10 +16,13 @@
 ;;;; # File 
 ;;;; is_atom.lisp: function to detect if one component is an atom or not
 
-(defun is_atom(var)
-	(cond ((atom var) T)
-		  ((eq (first var) '?) T)
-		  (T NIL)
+(defun is_atom (var)
+	(cond ((atom var) T)				 ; Check if is a constant/literal -> 'constant
+		  ((numberp var) T)				 ; Check if is a number
+		  ((endp var) T) 				 ; Empty list () = nil = null
+		  (NIL T)						 ; nil is an atom
+		  ((is_list var) T)			     ; Check if it is a list
+		  (T NIL)						 ; This is like the else of the if-else (although it is not neccesary to include it)
 	)
 
 )

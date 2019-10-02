@@ -6,7 +6,7 @@
 ;;;
 ;;; # Usage
 ;;;   1. > (load 'is_atom.lisp)
-;;;	  2. > (load_files)
+;;;	  2. > (is_atom 1)
 ;;;
 ;;; # License
 ;;;
@@ -14,11 +14,9 @@
 ;;; Copyright (c) 2019 Luis Blázquez, Samuel Gómez
 
 ;;;; # File 
-;;;; load_files_main.lisp: load main files for the unification algorithm
+;;;; all_numbers_list.lisp: function to detect if one component is an atom or not
 
-(load "is_list.lisp")
-(load "is_atom.lisp")
-
-(defun load_files (var)
-	(is_atom(var))
+(defun all_numbers_list (var)
+	(every #'numberp var)
 )
+
