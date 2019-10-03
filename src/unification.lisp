@@ -14,4 +14,5 @@
 ;;;; # File 
 ;;;;unification.lisp: implementation of unification algorithm in LISP
 
-(defunc unificar(E1, E2))
+(defun unificar(E1, E2)
+)
