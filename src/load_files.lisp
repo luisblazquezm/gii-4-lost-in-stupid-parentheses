@@ -16,7 +16,7 @@
 ;;;; # File 
 ;;;; load_files_main.lisp: load main files for the unification algorithm
 
-(load "not_a_list.lisp")
+(load "is_variable.lisp")
 (load "is_atom.lisp")
 
 (defun load_files (var)
