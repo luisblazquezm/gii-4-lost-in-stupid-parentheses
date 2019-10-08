@@ -31,7 +31,7 @@
 
 (defun is_variable (var)
 	(cond 
-		((atom var) NIL) ; Check if var is an atom. Then returns NIL
 		((eq '? (first var)) T)
+		((listp var) T)
 	)                   
 )
