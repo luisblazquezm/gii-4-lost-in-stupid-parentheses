@@ -5,6 +5,8 @@
 ;;; Implementation of the Unification Algorithm using LISP
 ;;;
 ;;; # Usage
+;;;   1. > (load 'is_variable.lisp)
+;;;	  2. > (is_variable 1)
 ;;;
 ;;; # License
 ;;;
@@ -27,12 +29,9 @@
 ;;;
 ;;;
 
-
 (defun is_variable (var)
-	(cond ((list var)				                                       ; Check If it is a list
-			  (if (and (symbolp (first var)) (string= (first var) '?) )    ; Check if the first element is a symbol and is '?'
-			      T                                                        ; If the conditions are accomplished returns T, otherwise returns NIL
-			  )
-		  ) 
+	(cond 
+		((atom var) NIL) ; Check if var is an atom. Then returns NIL
+		((eq '? (first var)) T)
 	)                   
 )
