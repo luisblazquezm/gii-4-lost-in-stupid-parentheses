@@ -7,14 +7,11 @@
 ;;;; # File 
 ;;;; is_list.lisp: function to detect if one component is a list or not
 
+(load "is_variable.lisp")
+
 (defun is_list (var)
-	(when (listp var)
-		(unless 
-			(and 
-				(symbolp (first var)) 
-				(string= (first var) '?)
-			)
-			T
-		)
+	(and 
+		(listp var)
+		(not (is_variable var))
 	)
 )
