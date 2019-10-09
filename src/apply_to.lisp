@@ -18,7 +18,6 @@
 ;;;;			 S1 can be anything
 ;;;;             P1 has to be a variable
 
-
 ;;;; EXAMPLE 1 (Substitution)
 ;;;; S1 = ( (A (? x)) (y (? z)) ((f h) (? k)) )
 ;;;;
@@ -29,96 +28,36 @@
 ;;;; substitute_item = A
 ;;;; item_to_substitute = (? x)
 
-
 ;;;; NOTE: nth gets element number n from a list: 
 ;;;;       (nth 2 '(a b c d))                      ; => c
+
+;;;; TEST ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> (apply_to '( (A (? x)) (y (? z)) ((f h) (? k)) ) '( (? x) (g (? k)) (f2 (? z)) ) )
+
+(load "is_variable.lisp")
 
 (defun apply_to (S1 P1)
 	; Initialize local variables substitute_item, item_to_substitute and result_list to nil
 	(prog (itemS1 itemP1 substitute_item item_to_substitute var_item result_list) 
 		(cond 
-			; Finish recursivity
-			((or (null S1) (null P1)) NIL)		  
+			((or (null S1) (null P1)) NIL)	; Finish recursivity
 		)
 
-		(terpri)
-		(princ "==============================================")
-		(terpri)
-		(terpri)
-		(princ "S1: ")
-		(write S1)
-		(terpri)
-		(princ "P1: ")
-		(write P1)
-		(terpri)
-		(terpri)
-
 		(dolist (itemS1 S1)
-
-			(princ ">>>>>>>>> ItemS1: ")
-			(write itemS1)
-			(terpri)
-			(terpri)
-
-			;(setf (nth i S1) itemS1)					; Get element i of S1 and store it in itemS1
-			(setf substitute_item (first itemS1))		; Get first element of itemS1 which is the substitute_item
-
-			(princ ">>> substitute_item: ")
-			(write substitute_item)
-			(terpri)
-
+			(setf substitute_item (first itemS1))		    ; Get first element of itemS1 which is the substitute_item
 			(setf item_to_substitute (nth 1 itemS1))	    ; Get last element of itemS1 which is the item_to_substitute
-
-			(princ ">>> item_to_substitute: ")
-			(write item_to_substitute)
-			(terpri)
-			(terpri)
 
 			(dolist (itemP1 P1)
 
-				(princ "ItemP1: ")
-				(write itemP1)
-				(terpri)
-
-				; Get element j of P1 and store it in itemP1
-				; (setf (nth j P1) itemP1)	
-
-				
-				;(princ "I get into recursive with")
-				;(terpri)
-				;(princ "substitute_item")
-				;(write substitute_item)
-				;(terpri)
-				;(princ "P1")
-				;(write P1)
-				;(terpri)
-
-				(if (and (listp itemP1) (not(is_variable itemP1)) )                          ; if-part
-					(setf (nth (position itemP1 P1) P1) (apply_to (list itemS1) itemP1))     ; then-part
+				; If itemP1 is not a variable and is a list, is a list inside a list. So we apply recursivity
+				(if (and (listp itemP1) (not(is_variable itemP1)) )                                 ; if-part
+					(setf (nth (position itemP1 P1) P1) (apply_to (list itemS1) itemP1))            ; then-part
        			)   
-	
-				; If the element got in S1 and the element got in P1 are the same
-				; Create a new list with the element substituted and the rest of the list we pass it to the recursivity
-				; (cons substitute_item (apply_to substitute_item P1)) ; => (substitute_item ...)
 
-
-				(princ "ItemP1 position in P1: ")
-				(write (position itemP1 P1))
-				(terpri)
-
+				; If the items found are equal , we apply the rule 
 				(if (equal itemP1 item_to_substitute)
 					(setf (nth (position itemP1 P1) P1) substitute_item)          
 				)
-
-				(princ "Result: ")
-				(write P1)
-
-				(terpri)
-				(terpri)
 			)
-
-			(terpri)
-			(terpri)
 		)
 
 		(return P1) 
