@@ -17,7 +17,9 @@
 ;;;; get_item_index_in_list.lisp: 
 
 (defun get_item_index_in_list (item list_of_things)
-	(cond ((null list_of_things) NIL)
-		(position item list_of_things)		                         
+	(cond 
+		((null list_of_things) NIL)
 	)
+	(position item list_of_things 
+		      :test #'equal)	   ; Default test with :test argument needed to get the index of a list within another list 	
 )
