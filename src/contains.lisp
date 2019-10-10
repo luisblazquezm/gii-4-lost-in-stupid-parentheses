@@ -29,7 +29,7 @@
 (defun contains (l i)
 	(if (is_list l)
 		(dolist (e l NIL)
-			(if (eq e i)
+			(if (equal e i)
 				(return T)
 				(if (contains e i)
 					(return T)
