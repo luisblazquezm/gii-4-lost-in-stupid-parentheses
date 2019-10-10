@@ -29,11 +29,14 @@
 ;;;
 ;;;
 
+(load "is_atom.lisp")
+
 (defun is_variable (var)
-	(cond ((list var)				                                       ; Check If it is a list
-			  (if (and (symbolp (first var)) (string= (first var) '?) )    ; Check if the first element is a symbol and is '?'
-			      T                                                        ; If the conditions are accomplished returns T, otherwise returns NIL
-			  )
-		  ) 
-	)                 
-)
+	;(cond ((equal E1 E2) NIL))
+	(cond ((and (symbolp (first var)) (string= (first var) '?) (= (length var) 2) )    ; Check if the first element is a symbol and is '?'
+			 T                                                                   ; If the conditions are accomplished returns T, otherwise returns NIL
+		  )
+
+	)				                                               ; Check If it is a list
+	
+)                 
