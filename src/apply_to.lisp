@@ -5,7 +5,7 @@
 ;;; Implementation of the Unification Algorithm using LISP
 ;;;
 ;;; # Usage
-;;;   1. > (load 'apply.lisp)
+;;;   1. > (load 'apply_to.lisp)
 ;;;	  2. > (is_variable 1)
 ;;;
 ;;; # License
