@@ -29,8 +29,6 @@
 ;;;
 ;;;
 
-(load "is_atom.lisp")
-
 (defun is_variable (var)
 	;(cond ((equal E1 E2) NIL))
 	(cond ((atom var) NIL)

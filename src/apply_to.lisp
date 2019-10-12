@@ -33,13 +33,13 @@
 
 ;;;; TEST ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> (apply_to '( (A (? x)) (y (? z)) ((f h) (? k)) ) '( (? x) (g (? k)) (f2 (? z)) ) )
 
-(load "is_variable.lisp")
-
 (defun apply_to (S1 P1)
 	; Initialize local variables substitute_item, item_to_substitute and result_list to nil
 	(prog (itemS1 itemP1 substitute_item item_to_substitute var_item result_list) 
+
 		(cond 
-			((or (null S1) (null P1)) NIL)	; Finish recursivity
+			((null S1) (return P1)) 	; Finish recursivity
+			((null P1) (return NIL))
 		)
 
 		(dolist (itemS1 S1)

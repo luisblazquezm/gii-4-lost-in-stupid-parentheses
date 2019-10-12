@@ -33,10 +33,18 @@
 (defun unificar2(E1 E2)
 	(prog (str_local it_local)
 
-		(cond ((equal E1 E2) NIL))
-
 		(setf str_local str) ; DEBUG
 		(setf it_local it) ; DEBUG
+
+		; DEBUG
+		(write it_local)
+		(princ str_local)
+		(princ "E1 and E2 are equal: ")
+		(write (equal E1 E2))
+		(terpri)
+		; DEBUG END
+
+		(cond ((equal E1 E2) (return NIL)))
 
 		; DEBUG
 		(write it_local)
@@ -119,6 +127,7 @@
 		(princ "F1: ")
 		(write F1)
 		(terpri)
+
 		(write it_local)
 		(princ str_local)
 		(princ "T1: ")
@@ -135,10 +144,16 @@
 		(princ "F2: ")
 		(write F2)
 		(terpri)
+
 		(write it_local)
 		(princ str_local)
 		(princ "T2: ")
 		(write T2)
+		(terpri)
+
+		(write it_local)
+		(princ str_local)
+		(princ "Going to unificate F1 F2")
 		(terpri)
 		; DEBUG END
 
@@ -153,7 +168,6 @@
 		(terpri)
 		; DEBUG END
 
-
 		(cond 
 			((eq Z1 'FALLO) (return 'FALLO))
 		)
@@ -162,8 +176,18 @@
 		;	((string= Z1 "FALLO") (return (string (intern "FALLO"))))
 		;)
 
+		; DEBUG
+		(write it_local)
+		(princ str_local)
+		(princ "Going to apply G1 --- ")
+		(princ " Z1: ")
+		(write Z1)
+		(princ "   T1: ")
+		(write T1)
+		(terpri)
+		; DEBUG END
+
 		(setf G1 (apply_to Z1 T1) )
-		(setf G2 (apply_to Z2 T2) )
 
 		; DEBUG
 		(write it_local)
@@ -171,14 +195,33 @@
 		(princ "G1: ")
 		(write G1)
 		(terpri)
+
+		(write it_local)
+		(princ str_local)
+		(princ "Going to apply G2 --- ")
+		(princ " Z1: ")
+		(write Z1)
+		(princ "   T2: ")
+		(write T1)
+		(terpri)
+		; DEBUG END
+
+		(setf G2 (apply_to Z1 T2) )
+
+		; DEBUG
 		(write it_local)
 		(princ str_local)
 		(princ "G2: ")
 		(write G2)
 		(terpri)
+
+		(write it_local)
+		(princ str_local)
+		(princ "Going to unificate G1 G2")
+		(terpri)
 		; DEBUG END
 
-		(setf Z2 (unificar(G1 G2)) )
+		(setf Z2 (unificar G1 G2) )
 
 		; DEBUG
 		(write it_local)
@@ -197,24 +240,40 @@
 		;	((string= Z2 "FALLO") (return (string (intern "FALLO"))))
 		;)
 
-		;(return (composition Z1 Z2))
+		(return 'COMPOSITION)
 	)
 )
 
 (defun unificar(E1 E2)
 
 	; DEBUG
-	(terpri)
-	(terpri)	
-	(princ "                    Iteracion ")
-	(write (incf it))
-	(princ "                      ")
-	(terpri)
-	(princ "==============================================")
-	(terpri)
-	(terpri)
+	;(terpri)
+	;(terpri)	
+	;(princ "                    Iteracion ")
+	;(write (incf it))
+	;(princ "                      ")
+	;(terpri)
+	;(princ "==============================================")
+	;(terpri)
+	;(terpri)
+
+	(incf it)
 
 	(setf str (concatenate 'string "----" str))
+
+	(terpri)
+	(terpri)
+	(terpri)
+	(write it)
+	(princ str)
+	(princ " -------- E1: ")
+	(write E1)
+	(princ "   E2: ")
+	(write E2)
+	(princ " --------")
+	(terpri)
+	(terpri)
+	(terpri)
 	; DEBUG END
 
 	(cond ((is_atom E1) (unificar2 E1 E2)) 

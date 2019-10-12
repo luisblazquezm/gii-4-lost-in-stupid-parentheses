@@ -111,7 +111,7 @@
 		(setf Z2 (unificar(G1 G2)) )
 		(cond ((equal Z2 'FALLO) return 'FALLO))
 
-		;(return (composition Z1 Z2))
+		(return 'COMPOSITION)
 	)
 )
 
