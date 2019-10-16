@@ -14,10 +14,11 @@
 ;;;; # File 
 ;;;;unification.lisp: implementation of unification algorithm in LISP
 
-(load "is_atom.lisp")
-(load "is_variable.lisp")
-(load "contains.lisp")
-(load "apply_to.lisp")
+;(load "is_atom.lisp")
+;(load "is_variable.lisp")
+;(load "contains.lisp")
+;(load "apply_to.lisp")
+;(load "composition.lisp")
 
 ;(define-condition not-unificable (error)
 ;  ((dividend :initarg :dividend
@@ -240,7 +241,8 @@
 		;	((string= Z2 "FALLO") (return (string (intern "FALLO"))))
 		;)
 
-		(return 'COMPOSITION)
+		(return (composite Z1 Z2))
+		;(return 'COMPOSITION)
 	)
 )
 
@@ -282,4 +284,4 @@
 	)
 )
 
-
+; (unificar '(P x A) '(P (f h) y))
