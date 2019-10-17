@@ -21,8 +21,10 @@
 (load "contains.lisp")
 (load "get_item_index_in_list.lisp")
 (load "apply_to.lisp")
-(load "composition.lisp")
-(load "unification.lisp")
+(load "composition_test.lisp")
+(load "unification_test.lisp")
+
+(load "test.lisp")
 
 
 

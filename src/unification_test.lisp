@@ -72,10 +72,17 @@
 				(princ "E2: ")
 				(write E2)
 				(terpri)
+				(write it_local)
+				(princ str_local)
+				(princ "CONTAINS E1 in E2: ")
+				(write (contains E2 E1))
+				(terpri)
+
+
 				; DEBUG END
 
 				(cond 
-					((equal E1 E2) (return 'FALLO_NO_UNIFICABLE))
+					((contains E2 E1) (return 'FALLO_NO_UNIFICABLE)) ; iF E1 apppears in E2
 				) ; Returns FALLO_NO_UNIFICABLE
 
 				;(cond 
@@ -170,7 +177,7 @@
 		; DEBUG END
 
 		(cond 
-			((eq Z1 'FALLO_NO_UNIFICABLE) (return 'FALLO_NO_UNIFICABLE))
+			((equal Z1 'FALLO_NO_UNIFICABLE) (return 'FALLO_NO_UNIFICABLE))
 		)
 
 		;(cond 
@@ -203,7 +210,7 @@
 		(princ " Z1: ")
 		(write Z1)
 		(princ "   T2: ")
-		(write T1)
+		(write T2)
 		(terpri)
 		; DEBUG END
 
@@ -234,7 +241,7 @@
 		; DEBUG END
 
 		(cond 
-			((eq Z2 'FALLO_NO_UNIFICABLE) (return 'FALLO_NO_UNIFICABLE))
+			((equal Z2 'FALLO_NO_UNIFICABLE) (return 'FALLO_NO_UNIFICABLE))
 		)
 
 		;(cond 

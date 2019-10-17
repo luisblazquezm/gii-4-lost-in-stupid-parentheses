@@ -43,6 +43,7 @@
 		)
 
 		(dolist (itemS1 S1)
+
 			(setf substitute_item (first itemS1))		    ; Get first element of itemS1 which is the substitute_item
 			(setf item_to_substitute (nth 1 itemS1))	    ; Get last element of itemS1 which is the item_to_substitute
 

@@ -24,7 +24,7 @@
 			(progn
 
 				(cond 
-					((equal E1 E2) (return 'FALLO_NO_UNIFICABLE))
+					((contains E1 E2) (return 'FALLO_NO_UNIFICABLE))
 				) ; Returns FALLO
 
 				(return (list (list E2 E1))) ; IMPORTANT: returns list of list because in apply_to in the firt loop we get items as a list of tuples (meaning tuple by tuple with the  element to substitute and element of substitution)

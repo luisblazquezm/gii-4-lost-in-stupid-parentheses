@@ -28,7 +28,7 @@
 (terpri)
 (terpri)
 
-(probar '(P (? x) A) '(P (f h) (? y)) '( ((F H) (? X)) (A (? Y)) ) (unificar '(P (? x) A) '(P (f h) (? y)) ) )
+;(probar '(P (? x) A) '(P (f h) (? y)) '( ((F H) (? X)) (A (? Y)) ) (unificar '(P (? x) A) '(P (f h) (? y)) ) )
 ;(unificar '(P (? x) A) '(P (f h) (? y)) )
 
 
@@ -50,7 +50,7 @@
 (setf it 0); DEBUG 
 (setf str "---->  "); DEBUG 
 
-(probar '(PERSONA (? x)) '(PERSONA ADOLFO) '( (ADOLFO (? X)) ) (unificar '(PERSONA (? x)) '(PERSONA ADOLFO) ) )
+;(probar '(PERSONA (? x)) '(PERSONA ADOLFO) '( (ADOLFO (? X)) ) (unificar '(PERSONA (? x)) '(PERSONA ADOLFO) ) )
 ;(unificar '(PERSONA (? x)) '(PERSONA ADOLFO) )
 
 ; EXAMPLE 3 (UNCOMMENT IT)
@@ -71,7 +71,7 @@
 (setf it 0); DEBUG 
 (setf str "---->  "); DEBUG 
 
-(probar '( PARENTS (? x) (FATHER (? x)) (MOTHER BILL) ) '( PARENTS BILL (FATHER BILL) (? y) ) ' ( (BILL (? x)) ((MOTHER BILL) (? Y)) ) (unificar '( PARENTS (? x) (FATHER (? x)) (MOTHER BILL) ) '( PARENTS BILL (FATHER BILL) (? y) ) ) )
+;(probar '( PARENTS (? x) (FATHER (? x)) (MOTHER BILL) ) '( PARENTS BILL (FATHER BILL) (? y) ) ' ( (BILL (? x)) ((MOTHER BILL) (? Y)) ) (unificar '( PARENTS (? x) (FATHER (? x)) (MOTHER BILL) ) '( PARENTS BILL (FATHER BILL) (? y) ) ) )
 ;(unificar '( PARENTS (? x) (FATHER (? x)) (MOTHER BILL) ) '( PARENTS BILL (FATHER BILL) (? y) ) )
 
 ; EXAMPLE 4 (UNCOMMENT IT)
@@ -113,7 +113,7 @@
 (setf it 0); DEBUG 
 (setf str "---->  "); DEBUG 
 
-(probar '( (? y) (? y) ) '( A (? y) ) '( (A (? Y)) ) (unificar '( (? y) (? y) ) '( A (? y) ) ))
+;(probar '( (? y) (? y) ) '( A (? y) ) '( (A (? Y)) ) (unificar '( (? y) (? y) ) '( A (? y) ) ))
 ;(unificar '( (? y) (? y) ) '( A (? y) ) )
 
 
@@ -135,7 +135,7 @@
 (setf it 0); DEBUG 
 (setf str "---->  "); DEBUG 
 
-(probar '(P a) '(P (? b)) '( (A (? B)) ) (unificar '(P a) '(P (? b)) ) )
+;(probar '(P a) '(P (? b)) '( (A (? B)) ) (unificar '(P a) '(P (? b)) ) )
 ;(unificar '(P a) '(P (? b)) )
 
 ; EXAMPLE 7 (UNCOMMENT IT)
@@ -156,12 +156,12 @@
 (setf it 0); DEBUG 
 (setf str "---->  "); DEBUG 
 
-(probar '(P (? x) B) '(P A (? y)) '( (A (? X)) (B (? Y)) ) (unificar '(P (? x) B) '(P A (? y)) ) )
+;(probar '(P (? x) B) '(P A (? y)) '( (A (? X)) (B (? Y)) ) (unificar '(P (? x) B) '(P A (? y)) ) )
 ;(unificar '(P (? x) B) '(P A (? y)) )
 
 ; EXAMPLE 8 (UNCOMMENT IT)
 ; REAL PREDICATES = P(x, B) , P(A, y) 
-; RESULT = FALLO_NO_UNIFICABLE
+; RESULT = ( (A (? X)) (B (? Y)) )
 (terpri)
 (terpri)
 (terpri)
@@ -177,7 +177,7 @@
 (setf it 0); DEBUG 
 (setf str "---->  "); DEBUG 
 
-(probar '((? x) B) '(A (? y)) 'FALLO_NO_UNIFICABLE (unificar '((? x) B) '(A (? y)) ))
+;(probar '((? x) B) '(A (? y)) '( (A (? X)) (B (? Y)) ) (unificar '((? x) B) '(A (? y)) ))
 ;(unificar '((? x) B) '(A (? y)) )
 
 ; EXAMPLE 9 (UNCOMMENT IT)
@@ -196,7 +196,7 @@
 (terpri)
 
 (setf it 0); DEBUG 
-(setf str "---->  "); DEBUG 
+(setf str "---->  "); DEBUG                                                  
 
 (probar '((? x) B (? x) A) '(A (? y) (? x) A) 'FALLO_NO_UNIFICABLE (unificar '((? x) B (? x) A) '(A (? y) (? x) A) ) )
 ;(unificar '((? x) B (? x) A) '(A (? y) (? x) A) )
@@ -219,7 +219,7 @@
 (setf it 0); DEBUG 
 (setf str "---->  "); DEBUG 
 
-(probar '(P M (? x) B) '(P M  A (? y)) '( (A (? X)) (B (? Y)) ) (unificar '(P M (? x) B) '(P M  A (? y)) ) )
+;(probar '(P M (? x) B) '(P M  A (? y)) '( (A (? X)) (B (? Y)) ) (unificar '(P M (? x) B) '(P M  A (? y)) ) )
 ;(unificar '(P M (? x) B) '(P M  A (? y)) )
 
 ; EXAMPLE 11 (UNCOMMENT IT)
@@ -240,7 +240,7 @@
 (setf it 0); DEBUG 
 (setf str "---->  "); DEBUG 
 
-(probar '(P (? x) B (? c)) '(P A (? y) (f A)) '( (A (? X)) (B (? Y)) ((F A) (? C)) ) (unificar '(P (? x) B (? c)) '(P A (? y) (f A)) ) )
+;(probar '(P (? x) B (? c)) '(P A (? y) (f A)) '( (A (? X)) (B (? Y)) ((F A) (? C)) ) (unificar '(P (? x) B (? c)) '(P A (? y) (f A)) ) )
 ;(unificar '(P (? x) B (? c)) '(P A (? y) (f A)) )
 
 ; EXAMPLE 12 (UNCOMMENT IT)
@@ -261,5 +261,5 @@
 (setf it 0); DEBUG 
 (setf str "---->  "); DEBUG 
 
-(probar '(P (? x) B (? c)) '(P A (? y) (f A B)) '( (A (? X)) (B (? Y)) ((F A B) (? C)) ) (unificar '(P (? x) B (? c)) '(P A (? y) (f A B))  ) )
+;(probar '(P (? x) B (? c)) '(P A (? y) (f A B)) '( (A (? X)) (B (? Y)) ((F A B) (? C)) ) (unificar '(P (? x) B (? c)) '(P A (? y) (f A B))  ) )
 ;(unificar '(P (? x) B (? c)) '(P A (? y) (f A B))  )
