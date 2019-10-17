@@ -75,12 +75,12 @@
 				; DEBUG END
 
 				(cond 
-					((equal E1 E2) (return 'FALLO))
-				) ; Returns FALLO
+					((equal E1 E2) (return 'FALLO_NO_UNIFICABLE))
+				) ; Returns FALLO_NO_UNIFICABLE
 
 				;(cond 
-				;	((equal E1 E2) (string (intern "FALLO")))
-				;) ; Returns FALLO
+				;	((equal E1 E2) (string (intern "FALLO_NO_UNIFICABLE")))
+				;) ; Returns FALLO_NO_UNIFICABLE
 
 				; DEBUG
 				(write it_local)
@@ -107,9 +107,9 @@
 			(return (list (list E1 E2))) ; IMPORTANT: returns list of list because in apply_to in the firt loop we get items as a list of tuples (meaning tuple by tuple with the  element to substitute and element of substitution)
 		)
 
-		(return 'FALLO)
+		(return 'FALLO_NO_UNIFICABLE)
 
-		;(string (intern "FALLO")) ; Returns FALLO
+		;(string (intern "FALLO_NO_UNIFICABLE")) ; Returns FALLO_NO_UNIFICABLE
 	)
 )
 
@@ -170,11 +170,11 @@
 		; DEBUG END
 
 		(cond 
-			((eq Z1 'FALLO) (return 'FALLO))
+			((eq Z1 'FALLO_NO_UNIFICABLE) (return 'FALLO_NO_UNIFICABLE))
 		)
 
 		;(cond 
-		;	((string= Z1 "FALLO") (return (string (intern "FALLO"))))
+		;	((string= Z1 "FALLO_NO_UNIFICABLE") (return (string (intern "FALLO_NO_UNIFICABLE"))))
 		;)
 
 		; DEBUG
@@ -234,11 +234,11 @@
 		; DEBUG END
 
 		(cond 
-			((eq Z2 'FALLO) (return 'FALLO))
+			((eq Z2 'FALLO_NO_UNIFICABLE) (return 'FALLO_NO_UNIFICABLE))
 		)
 
 		;(cond 
-		;	((string= Z2 "FALLO") (return (string (intern "FALLO"))))
+		;	((string= Z2 "FALLO_NO_UNIFICABLE") (return (string (intern "FALLO_NO_UNIFICABLE"))))
 		;)
 
 		(return (composite Z1 Z2))

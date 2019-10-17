@@ -21,17 +21,6 @@
 	; Initialize local variables substitute_item, item_to_substitute and result_list to nil
 	(prog (composition_list) 
 
-		(cond ((< 1 (length Z1) )
-			   (setf Z1 (make-list 1 :initial-element Z1))
-			  )
-		)
-
-		(cond ((< 1 (length Z2) )
-			   (setf Z2 (make-list 1 :initial-element Z2))
-			  )
-		)
-		
-
 		(setf composition_list (apply_to Z2 Z1))
 
 		(dolist (item composition_list)
@@ -39,17 +28,18 @@
 			(setf item_to_substitute (nth 1 item))	    ; Get last element of itemS1 which is the item_to_substitute
 
 			(dolist (itemZ2 Z2)
-				(setf substitute_item_Z2 (first itemZ2))		  ; Get first element of itemS1 which is the substitute_item
+				(setf substitute_item_Z2 (first itemZ2))		    ; Get first element of itemS1 which is the substitute_item
 				(setf item_to_substitute_Z2 (nth 1 itemZ2))	    ; Get last element of itemS1 which is the item_to_substitute
 
 				(if (equal item_to_substitute item_to_substitute_Z2)
 					(delete itemZ2 Z2)
 				)
+				
 			)
+
 		)
 
 		(setq composition_list (append composition_list Z2))
-
 		(return composition_list)
 	)
 )
