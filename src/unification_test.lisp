@@ -90,7 +90,7 @@
 				(terpri)
 				; DEBUG END
 
-				(return (list E2 E1))
+				(return (list (list E2 E1))) ; IMPORTANT: returns list of list because in apply_to in the firt loop we get items as a list of tuples (meaning tuple by tuple with the  element to substitute and element of substitution)
 			)
 		)
 
@@ -104,7 +104,7 @@
 		; DEBUG END
 
 		(if (is_variable E2)
-			(return (list E1 E2))
+			(return (list (list E1 E2))) ; IMPORTANT: returns list of list because in apply_to in the firt loop we get items as a list of tuples (meaning tuple by tuple with the  element to substitute and element of substitution)
 		)
 
 		(return 'FALLO)

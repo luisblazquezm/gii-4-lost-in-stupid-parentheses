@@ -56,15 +56,15 @@
 		(terpri)
 
 
-		(cond ((< 1 (length Z1) )
-			   (setf Z1 (make-list 1 :initial-element Z1))
-			  )
-		)
+		;(cond ((< 1 (length Z1) )
+		;	   (setf Z1 (make-list 1 :initial-element Z1))
+		;	  )
+		;)
 
-		(cond ((< 1 (length Z2) )
-			   (setf Z2 (make-list 1 :initial-element Z2))
-			  )
-		)
+		;(cond ((< 1 (length Z2) )
+		;	   (setf Z2 (make-list 1 :initial-element Z2))
+		;	  )
+		;)
 		
 		(terpri)
 		(princ "Z2: ")

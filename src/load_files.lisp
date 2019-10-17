@@ -60,4 +60,21 @@
 
 (unificar '(PERSONA (? x)) '(PERSONA ADOLFO) )
 
+; EXAMPLE 2 (UNCOMMENT IT)
+; REAL PREDICATES = PARENTS(x, FATHER(x), MOTHER(BILL)), PARENTS(BILL, FATHER(BILL), y)
+; RESULT = ( (BILL (? x)) (MOTHER(BILL) (? Y)) )
+(terpri)
+(terpri)
+(terpri)
+(princ "***********************************************************************************************")
+(terpri)
+(princ "****************************************** EXAMPLE 3 ******************************************")
+(terpri)
+(princ "***********************************************************************************************")
+(terpri)
+(terpri)
+(terpri)
+
+(unificar '( PARENTS (? x) (FATHER (? x)) (MOTHER BILL) ) '( PARENTS BILL (FATHER BILL) (? y) ) )
+
 
