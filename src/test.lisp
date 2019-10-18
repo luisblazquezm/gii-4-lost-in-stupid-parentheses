@@ -28,7 +28,7 @@
 (terpri)
 (terpri)
 
-;(probar '(P (? x) A) '(P (f h) (? y)) '( ((F H) (? X)) (A (? Y)) ) (unificar '(P (? x) A) '(P (f h) (? y)) ) )
+(probar '(P (? x) A) '(P (f h) (? y)) '( ((F H) (? X)) (A (? Y)) ) (unificar '(P (? x) A) '(P (f h) (? y)) ) )
 ;(unificar '(P (? x) A) '(P (f h) (? y)) )
 
 
@@ -182,7 +182,7 @@
 
 ; EXAMPLE 9 (UNCOMMENT IT)
 ; REAL PREDICATES = P(x, B, x, A) , P(A, y, x, A) 
-; RESULT = FALLO_NO_UNIFICABLE
+; RESULT = 
 (terpri)
 (terpri)
 (terpri)
@@ -263,3 +263,88 @@
 
 ;(probar '(P (? x) B (? c)) '(P A (? y) (f A B)) '( (A (? X)) (B (? Y)) ((F A B) (? C)) ) (unificar '(P (? x) B (? c)) '(P A (? y) (f A B))  ) )
 ;(unificar '(P (? x) B (? c)) '(P A (? y) (f A B))  )
+
+; EXAMPLE 13 (UNCOMMENT IT)
+; REAL PREDICATES = P(y, y) , P(a, y) 
+; RESULT = '( (A (? X)) (B (? Y)) ((F A B) (? C)) )
+(terpri)
+(terpri)
+(terpri)
+(princ "***********************************************************************************************")
+(terpri)
+(princ "****************************************** EXAMPLE 13 ******************************************")
+(terpri)
+(princ "***********************************************************************************************")
+(terpri)
+(terpri)
+(terpri)
+
+(setf it 0); DEBUG 
+(setf str "---->  "); DEBUG 
+
+;(probar '(P (? x) B (? c)) '(P A (? y) (f A B)) '( (A (? X)) (B (? Y)) ((F A B) (? C)) ) (unificar '(P (? x) B (? c)) '(P A (? y) (f A B))  ) )
+;(unificar '( (? x) B (? z) A ) '(A (? y) (? x) A ) )
+
+; EXAMPLE 13 (UNCOMMENT IT)
+; REAL PREDICATES = P(y, y) , P(a, y) 
+; RESULT = 'FALLO_NO_UNIFICABLE
+(terpri)
+(terpri)
+(terpri)
+(princ "***********************************************************************************************")
+(terpri)
+(princ "****************************************** EXAMPLE 14 ******************************************")
+(terpri)
+(princ "***********************************************************************************************")
+(terpri)
+(terpri)
+(terpri)
+
+(setf it 0); DEBUG 
+(setf str "---->  "); DEBUG 
+
+(probar '( (? x) (? z) (? y) ) '( (? y) (? x) (? b) ) 'FALLO_NO_UNIFICABLE (unificar '( (? x) (? z) (? y) ) '((? y) (? x) (? b) )  ) )
+;(unificar '( (? x) (? z) (? y) ) '((? y) (? x) (? b) ) )
+
+
+; EXAMPLE 13 (UNCOMMENT IT)
+; REAL PREDICATES = P(y, y) , P(a, y) 
+; RESULT = 'FALLO_NO_UNIFICABLE
+(terpri)
+(terpri)
+(terpri)
+(princ "***********************************************************************************************")
+(terpri)
+(princ "****************************************** EXAMPLE 15 ******************************************")
+(terpri)
+(princ "***********************************************************************************************")
+(terpri)
+(terpri)
+(terpri)
+
+(setf it 0); DEBUG 
+(setf str "---->  "); DEBUG 
+
+(probar '(P C B A) '(B D C C) 'FALLO_NO_UNIFICABLE (unificar '(P C B A) '(B D C C)  ) )
+;(unificar '(P C B A) '(B D C C) )
+
+; EXAMPLE 13 (UNCOMMENT IT)
+; REAL PREDICATES = P(y, y) , P(a, y) 
+; RESULT = 'FALLO_NO_UNIFICABLE
+(terpri)
+(terpri)
+(terpri)
+(princ "***********************************************************************************************")
+(terpri)
+(princ "****************************************** EXAMPLE 16 ******************************************")
+(terpri)
+(princ "***********************************************************************************************")
+(terpri)
+(terpri)
+(terpri)
+
+(setf it 0); DEBUG 
+(setf str "---->  "); DEBUG 
+
+(probar '(P (? x) A) '(D (f h) (? y)) 'FALLO_NO_UNIFICABLE (unificar '(P (? x) A) '(D (f h) (? y)) ) )
+;(unificar '(P (? x) A) '(P (f h) (? y)) )

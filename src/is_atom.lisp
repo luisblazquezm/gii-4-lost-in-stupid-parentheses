@@ -19,7 +19,7 @@
 (defun is_atom (var)
 	(cond 
 	      ((atom var) T)				 ; Check if is a constant/literal -> 'constant
-		  ((eq (first var) '?) T)		 ; Check if it is a list
+		  ;((eq (first var) '?) T)		 ; Check if it is a list
 		  (T NIL)						 ; This is like the else of the if-else (although it is not neccesary to include it)
 	)
 )
